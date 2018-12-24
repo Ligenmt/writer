@@ -1,0 +1,60 @@
+<div class="col-sm-3 col-md-3 right">
+
+    <div class="right-cat">
+        <h3>联系我们</h3>
+        <p style="color: #3c763d"><strong>生活不只有眼前的苟且，还有诗和远方</strong></p>
+        <p style="color: #3c763d"><strong>写稿死磕不是唯一出路，有中国写手网</strong></p>
+        24小时联系电话：<br>
+        18911613685<br>
+        13581978494
+    </div>
+
+    <div class="right-cat">
+        <h3>重要承诺</h3>
+        <p>
+            <span style="color: #d58512"><strong>原创：</strong></span>保证每一篇文章绝无抄袭，原创。<br>
+            <span style="color: #d58512"><strong>质量：</strong></span>保证每一篇文章精益求精，质量。<br>
+            <span style="color: #d58512"><strong>守时：</strong></span>保证每一篇稿件按时交稿，守时。<br>
+            <span style="color: #d58512"><strong>保密：</strong></span>保证不对外披露客户信息，保密。
+        </p>
+    </div>
+
+    <div class="right-cat">
+        <h3>热点内容</h3>
+        <volist name="bizs" id="biz" key="k">
+            <div>
+                <ul>
+                    <volist name="cats" id="cat" key="k">
+                        <if condition="$biz.biz_id eq $cat['biz_id']"> <!--后面那个参数用中括号-->
+                            <li><a href="/index.php?c=category&id={$cat.cat_id}">{$cat.name}</a></li>
+                        </if>
+                    </volist>
+                </ul>
+                <br/>
+            </div>
+        </volist>
+    </div>
+
+
+    <div class="right-title">
+        <h3>近期文章</h3>
+        <span>LATEST ARTICLES</span>
+    </div>
+    <div class="right-content">
+        <ul>
+            <volist name="latest_articles" id="article" key="k">
+                <li class="num{$k} curr">
+                    <a target="_blank" href="/index.php?c=article&id={$article.article_id}">{$article.title}</a>
+                </li>
+            </volist>
+
+        </ul>
+    </div>
+    <!--广告位，待开发-->
+    <div class="right-hot">
+        <img src="/Public/images/img5.jpg" alt="">
+    </div>
+    <div class="right-hot">
+        <img src="/Public/images/img6.jpg" alt="">
+    </div>
+</div>

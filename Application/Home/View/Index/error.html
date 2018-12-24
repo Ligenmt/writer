@@ -1,0 +1,24 @@
+<include file="Index/header" />
+    <section>
+        <div class="container">
+            <h1 style="color:red">{$message}</h1>
+            <h3 id="location">系统将在<span style="color:red">3</span>秒后自动跳转</h3>
+        </div>
+    </section>
+</body>
+<script src="/Public/js/jquery.js"></script>
+<script>
+    var url = "/";
+    var time = 2;
+    setInterval("refer()", 1000);
+    function refer() {
+        if(time == 0) {
+            location.href = url;
+        }
+        if(time >= 0) {
+            $("#location span").html(time);
+        }
+        time--;
+    }
+</script>
+</html>

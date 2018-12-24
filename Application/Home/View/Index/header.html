@@ -1,0 +1,37 @@
+<?php
+    $config = D("Basic")->select();
+    $navs = D("Menu")->getBarMenus();
+?>
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{$config.title}</title>
+    <meta name="keywords" content="{$config.keywords}">
+    <meta name="description" content="{$config.description}">
+    <link rel="stylesheet" href="/Public/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="/Public/css/home/main.css" type="text/css" />
+</head>
+<body>
+<header id="header">
+    <div class="navbar-inverse">
+        <div class="container">
+            <div class="navbar-header">
+                <a href="/">
+                    <img src="/Public/images/logo.png" alt="">
+                    <!--<img src="http://www.wenancn.com/images/wencn/logo.gif" alt="">-->
+                </a>
+            </div>
+            <ul class="nav navbar-nav navbar-left">
+                <li><a href="/" <if condition="$id eq 0">class="curr"</if>>首页</a></li>
+                <li><a href="/index.php?a=about" <if condition="$id eq 1">class="curr"</if>>关于我们</a></li>
+                <li><a href="/index.php?a=business" <if condition="$id eq 2">class="curr"</if>>撰稿范围</a></li>
+                <li><a href="/index.php?a=example" <if condition="$id eq 3">class="curr"</if>>成功案例</a></li>
+                <li><a href="/index.php?a=connect" <if condition="$id eq 4">class="curr"</if>>联系我们</a></li>
+                <!--<foreach name="navs" item="nav">-->
+                    <!--<li><a href="/index.php?c=cat&id={$nav.menu_id}" <if condition="$nav.menu_id eq $catId">class="curr"</if>>{$nav.name}</a></li>-->
+                <!--</foreach>-->
+            </ul>
+        </div>
+    </div>
+</header>

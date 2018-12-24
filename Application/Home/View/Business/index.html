@@ -1,0 +1,31 @@
+<include file="Index/header" />
+
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-9 col-md-9">
+                <h2 class="business-title">
+                    <volist name="bizs" id="item">
+                        <if condition="$item['biz_id'] eq $biz_id">
+                            {$item.name}
+                        </if>
+                    </volist>
+                </h2>
+                <div class="business-arc-list">
+                    <ul>
+                        <volist name="latest_articles" id="arc_item">
+                            <a href="/index.php?c=article&id={$arc_item.article_id}"><li>{$arc_item.title}</li></a>
+                        </volist>
+                    </ul>
+                </div>
+                <ul class="pagination">
+                    {$pageRes}
+                </ul>
+
+            </div>
+
+            <include file="Index/right" />
+        </div>
+    </div>
+
+</section>

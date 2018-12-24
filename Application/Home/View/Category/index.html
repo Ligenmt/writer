@@ -1,0 +1,33 @@
+<include file="Index/header" />
+
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-9 col-md-9">
+                <div class="news-list">
+                    <volist name="latest_articles" id="vo">
+                        <dl>
+                            <dt><a href="/index.php?c=article&id={$vo.article_id}">{$vo.title}</a></dt>
+                            <!--<dd class="news-img">-->
+                                <!--<a href="/index.php?c=detail&id={$vo.article_id}"><img width="200" height="120" src="{$vo.thumb}" alt="{$vo.title}"></a>-->
+                            <!--</dd>-->
+                            <!--<dd class="news-intro">-->
+                                <!--{$vo.description}-->
+                            <!--</dd>-->
+                            <!--<dd class="news-info">-->
+                                <!--{$vo.keywords}<span>{$vo.create_time|date="Y-m-d", ###}</span> 阅读(0)-->
+                            <!--</dd>-->
+                        </dl>
+                    </volist>
+                    <ul class="pagination">
+                        {$pageRes}
+                    </ul>
+                </div>
+
+            </div>
+
+            <include file="Index/right" />
+        </div>
+    </div>
+
+</section>

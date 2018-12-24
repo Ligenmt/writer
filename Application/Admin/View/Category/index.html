@@ -1,0 +1,85 @@
+<include file="Index/header" />
+<body>
+<div id="wrapper">
+
+    <include file="Index/nav"/>
+    <div id="page-wrapper">
+
+        <div class="container-fluid" >
+
+            <!-- Page Heading -->
+            <div class="row">
+                <div class="col-lg-12">
+
+                    <ol class="breadcrumb">
+                        <li>
+                            <i class="fa fa-dashboard"></i>  <a href="/admin.php?c=category">文章类型管理</a>
+                        </li>
+                        <li class="active">
+                            <i class="fa fa-table"></i>文章类型列表
+                        </li>
+                    </ol>
+                </div>
+            </div>
+            <!-- /.row -->
+            <div >
+                <button id="button-add" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>添加</button>
+            </div>
+            <div class="row">
+                <div class="col-lg-6">
+                    <h3></h3>
+                    <div class="table-responsive">
+                        <form id="singcms-listorder">
+                            <table class="table table-bordered table-hover singcms-table">
+                                <thead>
+                                <tr>
+                                    <th>id</th>
+                                    <th>文章类型</th>
+                                    <th>业务类型</th>
+                                    <th>时间</th>
+                                    <th>操作</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <volist name="cats" id="item">
+                                    <tr>
+                                        <td>{$item.cat_id}</td>
+                                        <td>{$item.name}</td>
+                                        <td>{$item.biz_id|getBizName=$bizs, ###}</td>
+                                        <td>{$item.create_time|date="Y-m-d H:i",###}</td>
+                                        <td><span class="sing_cursor glyphicon glyphicon-edit" aria-hidden="true" id="singcms-edit" attr-id="{$item.cat_id}" ></span>
+                                            <a href="javascript:void(0)" id="singcms-delete"  attr-id="{$item.cat_id}"  attr-message="删除">
+                                                <span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                </volist>
+                                </tbody>
+
+                            </table>
+                            <ul class="pagination">
+                                {$pageRes}
+                            </ul>
+
+                        </form>
+                    </div>
+                </div>
+            </div><!-- /.row -->
+
+        </div>
+        <!-- /.container-fluid -->
+
+    </div>
+    <!-- /#page-wrapper -->
+
+</div>
+<!-- /#wrapper -->
+<script>
+    var SCOPE = {
+        'add_url' : '/admin.php?c=category&a=add',
+        'jump_url' : '/admin.php?c=category',
+        'delete_url' : '/admin.php?c=category&a=delete',
+        'set_status_url' : '/admin.php?c=category&a=delete'
+    }
+</script>
+<include file="Index/footer" />
